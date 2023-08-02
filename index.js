@@ -1,3 +1,8 @@
 
+var { reverse } = require('./problems/reverseString.js')
 
-console.log("Olá Serpro!")
+
+console.log(reverse("João"))
+
+
+

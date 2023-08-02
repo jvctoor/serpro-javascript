@@ -1,6 +1,8 @@
 
 
-const reverse = (str) => {
+
+
+function reverse(str){
 
     var strRevertida = []
 
@@ -14,5 +16,9 @@ const reverse = (str) => {
 }
 
 
-console.log(reverse("João"))
+module.exports.reverse = reverse
+
+
+
+
 
