@@ -49,6 +49,10 @@ class LinkedList {
     }
 
     insert(index, value) {
+        if (index === 0) {
+            this.prepend(value)
+            return this.toString()
+        }
         const newNode = {
             value: value,
             next: null
@@ -84,6 +88,6 @@ ll.append(3)
 ll.append(4)
 ll.append(6)
 ll.append(7)
-ll.insert(2, 5)
+ll.insert(0, 5)
 console.log(ll.toString())
 
