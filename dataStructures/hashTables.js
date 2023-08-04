@@ -50,8 +50,16 @@ const myHashTable = new HashTable(50)
 
 myHashTable.set('grapes', 10000)
 myHashTable.set('joao', 10000)
-console.log(myHashTable.get('grapes'))
-console.log(myHashTable.keys())
+//console.log(myHashTable.get('grapes'))
+//console.log(myHashTable.keys())
+
+
+let myMap = new Map()
+myMap[2] = 0
+
+
+
+
 
 
 
