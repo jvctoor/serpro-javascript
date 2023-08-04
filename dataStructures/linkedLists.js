@@ -80,14 +80,51 @@ class LinkedList {
         return str
     }
 
+    reverseTry() {
+
+        let current = this.head //1
+
+        this.tail = this.head
+
+        let proximo = current.next //2
+
+        while (proximo) {
+            const aux = proximo.next
+            proximo.next = current
+            current = proximo
+            proximo = aux
+        }
+
+        this.head.next = null
+        this.head = current
+
+    }
+
+    reverse() {
+        if (this.length === 1) {
+            return this
+        }
+        let first = this.head
+        this.tail = this.head
+        let second = first.next
+        while (second) {
+            const temp = second.next
+            second.next = first
+            first = second
+            second = temp
+        }
+        this.head.next = null
+        this.head = first
+
+
+    }
+
 }
 
 ll = new LinkedList(1)
 ll.append(2)
 ll.append(3)
 ll.append(4)
-ll.append(6)
-ll.append(7)
-ll.insert(0, 5)
+ll.reverseTry()
 console.log(ll.toString())
 
