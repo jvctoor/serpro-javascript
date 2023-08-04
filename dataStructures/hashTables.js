@@ -23,7 +23,14 @@ class HashTable {
 
     get(key) {
         let idx = this._hash(key)
-        return this.data[idx]
+        const currentBucket = this.data[idx]
+        if (currentBucket) {
+            for(let i = 0; i < currentBucket.length; i++) {
+                if(currentBucket[i][0] === key) {
+                    return currentBucket[i][1]
+                }
+            }
+        }
     }
 
 }
