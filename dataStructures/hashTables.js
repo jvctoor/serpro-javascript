@@ -15,7 +15,10 @@ class HashTable {
 
     set(key, value) {
         let idx = this._hash(key)
-        this.data[idx] = value
+        if (!this.data[idx]) {
+            this.data[idx] = []
+        }
+        this.data[idx].push([key, value])
     }
 
     get(key) {
@@ -28,6 +31,7 @@ class HashTable {
 const myHashTable = new HashTable(50)
 
 myHashTable.set('grapes', 10000)
+myHashTable.set('grapess', 10000)
 console.log(myHashTable.get('grapes'))
 
 
