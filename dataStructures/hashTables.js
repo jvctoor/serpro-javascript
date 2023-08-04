@@ -33,13 +33,25 @@ class HashTable {
         }
     }
 
+    keys() {
+        let keysList = []
+        for (let i = 0; i < this.data.length; i++) {
+            if (this.data[i]) {
+                console.log(this.data[i])
+                keysList.push(this.data[i][0][0])
+            }
+        }
+        return keysList
+    }
+
 }
 
 const myHashTable = new HashTable(50)
 
 myHashTable.set('grapes', 10000)
-myHashTable.set('grapess', 10000)
+myHashTable.set('joao', 10000)
 console.log(myHashTable.get('grapes'))
+console.log(myHashTable.keys())
 
 
 
