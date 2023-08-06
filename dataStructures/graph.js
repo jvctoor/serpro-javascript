@@ -7,11 +7,16 @@ class Graph {
     }
 
     addVertex(node) {
-
+        this.adjacentList[node] = []
     }
 
     addEdge(node1, node2) {
-
+        let lista1 = this.adjacentList[node1]
+        let lista2 = this.adjacentList[node2]
+        lista1.push(node2)
+        lista2.push(node1)
+        this.adjacentList[node1] = lista1
+        this.adjacentList[node2] = lista2
     }
 
     showConnections() {
