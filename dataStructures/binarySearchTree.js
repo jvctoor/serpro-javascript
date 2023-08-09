@@ -157,6 +157,24 @@ class BinarySearchTree {
         }
     }
 
+    breadthFirstSearch() {
+        let currentNode = this.root
+        let list = []
+        let queue = []
+        queue.push(currentNode)
+        while (queue.length > 0) {
+            currentNode = queue.shift()
+            list.push(currentNode.value)
+            if (currentNode.left) {
+                queue.push(currentNode.left)
+            }
+            if (currentNode.right) {
+                queue.push(currentNode.right)
+            }
+        }
+        return list
+    }
+
 }
 
 function traverse(node) {
@@ -178,6 +196,11 @@ tree = new BinarySearchTree()
 tree.insert(9)
 tree.insert(10)
 tree.remove(10)
-console.log(JSON.stringify(traverse(tree.root)))
+tree.insert(11)
+tree.insert(12)
+tree.insert(13)
+tree.insert(14)
+//console.log(JSON.stringify(traverse(tree.root)))
+console.log(tree.breadthFirstSearch())
 
 
