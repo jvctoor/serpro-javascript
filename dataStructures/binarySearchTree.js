@@ -219,6 +219,30 @@ function traverseInOrder(node, list) {
     return list
 }
 
+function traversePreOrder(node, list) {
+    list.push(node.value)
+    if (node.left) {
+        traversePreOrder(node.left, list)
+    }
+    if (node.right) {
+        traversePreOrder(node.right, list)
+    }
+    //list.push(node.value)
+    return list
+}
+
+function traversePostOrder(node, list) {
+    if (node.left) {
+        traversePostOrder(node.left, list)
+    }
+    if (node.right) {
+        traversePostOrder(node.right, list)
+    }
+    list.push(node.value)
+    //list.push(node.value)
+    return list
+}
+
 
 function traverse(node) {
     if (node === null) {
