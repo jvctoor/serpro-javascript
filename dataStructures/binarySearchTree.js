@@ -175,7 +175,50 @@ class BinarySearchTree {
         return list
     }
 
+    breadthFirstSearchR(queue, list) {
+        if (queue.length === 0) {
+            return list;
+        }
+        let currentNode = queue.shift()
+        list.push(currentNode.value)
+        if (currentNode.left) {
+            queue.push(currentNode.left)
+        }
+        if (currentNode.right) {
+            queue.push(currentNode.right)
+        }
+        return this.breadthFirstSearchR(queue, list)
+
+    }
+
+    DFSInOrder() {
+        return traverseInOrder(this.root, [])
+    }
+
+    DFSPreOrder() {
+        return traversePreOrder(this.root, [])
+    }
+
+    DFSPostOrder() {
+        return traversePostOrder(this.root, [])
+    }
+
+
+
 }
+
+function traverseInOrder(node, list) {
+    if (node.left) {
+        traverseInOrder(node.left, list)
+    }
+    list.push(node.value)
+    if (node.right) {
+        traverseInOrder(node.right, list)
+    }
+    //list.push(node.value)
+    return list
+}
+
 
 function traverse(node) {
     if (node === null) {
@@ -201,6 +244,8 @@ tree.insert(12)
 tree.insert(13)
 tree.insert(14)
 //console.log(JSON.stringify(traverse(tree.root)))
-console.log(tree.breadthFirstSearch())
+//console.log(tree.breadthFirstSearch())
+//console.log(tree.breadthFirstSearch([tree.root], []))
+console.log(tree.DFSInOrder())
 
 
